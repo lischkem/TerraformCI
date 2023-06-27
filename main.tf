@@ -19,15 +19,15 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rgcd" {
   name     = "rg_dna-team-cloud-engineering"
   location = "West Europe"
 }
 
 resource "azurerm_storage_account" "storage" {
   name                     = "storagemali827cicd"
-  location                 = azurerm_resource_group.rg.location
-  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rgcd.location
+  resource_group_name      = azurerm_resource_group.rgcd.name
   account_replication_type = "RAGRS"
   account_tier             = "Standard"
 }
